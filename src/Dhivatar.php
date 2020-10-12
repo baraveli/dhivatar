@@ -15,12 +15,12 @@ class Dhivatar
         return $this;
     }
 
-    public function setText(string $text) : Object
+    public function setText(string $text, $color = "#fdf6e3") : Object
     {
         $this->image->text(mb_substr($text, 0, 1), 245, 245, function ($font) {
             $font->file(__DIR__ . '/fonts/MV_Faseyha.otf');
             $font->size(250);
-            $font->color('#fdf6e3');
+            $font->color($color);
             $font->align('center');
             $font->valign('center');
             $font->angle(0);
