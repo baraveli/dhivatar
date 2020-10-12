@@ -1,0 +1,20 @@
+{
+    "name": "jinas/dhivatar",
+    "description": "Dhivehi Avatars PHP port.",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Mohamed jinas",
+            "email": "j@live.mv"
+        }
+    ],
+    "require": {
+        "intervention/image": "^2.5"
+    },
+
+    "autoload": {
+        "psr-4": {
+            "Jinas\\Dhivatar\\" : "src/"
+        }
+    }
+}
