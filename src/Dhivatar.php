@@ -17,7 +17,7 @@ class Dhivatar
 
     public function setText(string $text, $color = "#fdf6e3") : Object
     {
-        $this->image->text(mb_substr($text, 0, 1), 245, 245, function ($font) {
+        $this->image->text(mb_substr($text, 0, 1), 245, 245, function ($font) use ($color) {
             $font->file(__DIR__ . '/fonts/MV_Faseyha.otf');
             $font->size(250);
             $font->color($color);
