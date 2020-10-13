@@ -38,6 +38,14 @@ You can chain setters to customize the generated image.
 
 I will add more configuration options later when I get time.
 
+
+## TODO
+
+To return an instance of image intervention.
+
+- [ ] Add bas64 encoding
+- [ ] Add render option for the image
+ 
 ## Inspired by
 
 - [phoenixatom dhivehi-avatar](https://github.com/phoenixatom/dhivehi-avatar)
