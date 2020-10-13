@@ -1,5 +1,5 @@
 # dhivatar
-[![StyleCI](https://github.styleci.io/repos/303485611/shield?branch=master)]
+![StyleCI](https://github.styleci.io/repos/303485611/shield?branch=master)
 
 PHP port of phoenixatom Dhivatar package
 
