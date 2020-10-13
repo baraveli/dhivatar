@@ -16,8 +16,15 @@ use Jinas\Dhivatar\DhivatarFactory;
 
 DhivatarFactory::create()
             ->setText("ޖިނާސް")
-            ->output("file.jpg");
+            ->output("default.jpg");        
+```
+OUTPUT:
 
+![default](examples/default.jpg)
+
+```php
+
+use Jinas\Dhivatar\DhivatarFactory;
 
 DhivatarFactory::create()
             ->setText("ޖިނާސް", "#C93839")
@@ -25,6 +32,9 @@ DhivatarFactory::create()
             ->setBackground("#3083AD")
             ->output("file.jpg");            
 ```
+OUTPUT:
+
+![default](examples/file.jpg)
 
 You can chain setters to customize the generated image.
 
@@ -35,8 +45,6 @@ You can chain setters to customize the generated image.
 - setText(string $text, string $color) : Set the text and text color
 - setFontSize(int $size) : Set the font size
 - output(string $filename) : Output the final image file.
-
-I will add more configuration options later when I get time.
 
 ## Inspired by
 
