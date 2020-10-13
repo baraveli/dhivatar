@@ -11,12 +11,30 @@ composer require jinas/dhivatar
 ## Usage
 
 ```php
-(new Dhivatar)->create("#2D2D2D", 512, 512) //Background color and image width and height
-            ->setText("އަހުމަދު", "#fdf6e3") //Text and text color
-            ->output("path/final.jpg"); //output path
+
+use Jinas\Dhivatar\DhivatarFactory;
+
+DhivatarFactory::create()
+            ->setText("ޖިނާސް")
+            ->output("file.jpg");
+
+
+DhivatarFactory::create()
+            ->setText("ޖިނާސް", "#C93839")
+            ->setFontSize(255)
+            ->setBackground("#3083AD")
+            ->output("file.jpg");            
 ```
 
-You can override any defaults configs by passing params.
+You can chain setters to customize the generated image.
+
+## Available Methods
+
+- setBackground(string $background) : Set the background of the image
+- setSize(int $width, int $height) : Set the size of the image canvas
+- setText(string $text, string $color) : Set the text and text color
+- setFontSize(int $size) : Set the font size
+- output(string $filename) : Output the final image file.
 
 I will add more configuration options later when I get time.
 

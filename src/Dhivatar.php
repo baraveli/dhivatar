@@ -2,34 +2,115 @@
 
 namespace Jinas\Dhivatar;
 
+use Exception;
 use Intervention\Image\ImageManagerStatic;
 
 class Dhivatar
 {
+    protected const MAX_SIZE = 512;
 
-    protected $image;
+    protected $background;
+    protected $width;
+    protected $height;
+    protected $text;
+    protected $textColor;
+    protected $fontSize = 250;
 
-    public function create(string $background = "#2D2D2D", int $width = 512, int $height = 512): Object
+    
+    /**
+     * __construct
+     *
+     * @param  int $width
+     * @param  int $height
+     * @return void
+     */
+    public function __construct(int $width, int $height)
     {
-        $this->image = ImageManagerStatic::canvas($width, $height, $background);
+        $this->width = $width;
+        $this->height = $height;
+    }
+    
+    /**
+     * setBackground
+     *
+     * @param  string $background
+     * @return Object
+     */
+    public function setBackground(string $background): Object
+    {
+        $this->background = $background;
         return $this;
     }
-
-    public function setText(string $text, $color = "#fdf6e3"): Object
+    
+    /**
+     * setSize
+     *
+     * @param  int $width
+     * @param  int $height
+     * @return Object
+     */
+    public function setSize(int $width, int $height): Object
     {
-        $this->image->text(mb_substr($text, 0, 1), 245, 245, function ($font) use ($color) {
+        $this->width = $width;
+        $this->height = $height;
+        return $this;
+    }
+    
+    /**
+     * setText
+     *
+     * @param  string $text
+     * @param  string $color
+     * @return Object
+     */
+    public function setText(string $text, string $color = "#ffff"): Object
+    {
+        $this->text = $text;
+        $this->textColor = $color;
+        return $this;
+    }
+    
+    /**
+     * setFontSize
+     *
+     * @param  int $size
+     * @return Object
+     */
+    public function setFontSize(int $size) : Object
+    {
+        $this->fontSize = $size;
+        return $this;
+    }
+    
+    /**
+     * output
+     *
+     * @param  string $filename
+     * @return void
+     */
+    public function output(string $filename = 'default.jpg'): void
+    {
+        $image = ImageManagerStatic::canvas($this->width ?? $this::MAX_SIZE, $this->height ?? $this::MAX_SIZE, $this->background ?? $this->generateColor());
+
+        $image->text(mb_substr($this->text, 0, 1), 245, 245, function ($font) {
             $font->file(__DIR__ . '/fonts/MV_Faseyha.otf');
-            $font->size(250);
-            $font->color($color);
+            $font->size($this->fontSize);
+            $font->color($this->textColor);
             $font->align('center');
             $font->valign('center');
             $font->angle(0);
         });
-        return $this;
-    }
 
-    public function output(string $filename = 'default.jpg'): void
+        $image->save($filename);
+    }
+    
+    /**
+     * generateColor
+     *
+     * @return void
+     */
+    protected function generateColor()
     {
-        $this->image->save($filename);
+        return '#' . str_pad(dechex(mt_rand(0, 0xFFFFFF)), 6, '0', STR_PAD_LEFT);
     }
 }

@@ -1,9 +1,15 @@
 <?php
 
-use Jinas\Dhivatar\Dhivatar;
+use Jinas\Dhivatar\DhivatarFactory;
 
 require '../vendor/autoload.php';
 
-(new Dhivatar)->create()
-            ->setText("އަހުމަދު")
-            ->output();
+DhivatarFactory::create()
+    ->setText("ޖިނާސް")
+    ->output("default.jpg");
+
+DhivatarFactory::create()
+    ->setText("ޖިނާސް", "#C93839")
+    ->setFontSize(255)
+    ->setBackground("#3083AD")
+    ->output("file.jpg");
