@@ -38,7 +38,7 @@ OUTPUT:
 
 You can chain setters to customize the generated image.
 
-If you don't set a background image. It will automatically generate a random background image.
+If you don't set a background image. It will automatically generate a random background color.
 
 ## Available Methods
 
