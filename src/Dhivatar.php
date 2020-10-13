@@ -2,7 +2,6 @@
 
 namespace Jinas\Dhivatar;
 
-use Exception;
 use Intervention\Image\ImageManagerStatic;
 
 class Dhivatar
@@ -16,12 +15,12 @@ class Dhivatar
     protected $textColor;
     protected $fontSize = 250;
 
-    
     /**
-     * __construct
+     * __construct.
      *
-     * @param  int $width
-     * @param  int $height
+     * @param int $width
+     * @param int $height
+     *
      * @return void
      */
     public function __construct(int $width, int $height)
@@ -29,63 +28,72 @@ class Dhivatar
         $this->width = $width;
         $this->height = $height;
     }
-    
+
     /**
-     * setBackground
+     * setBackground.
      *
-     * @param  string $background
-     * @return Object
+     * @param string $background
+     *
+     * @return object
      */
-    public function setBackground(string $background): Object
+    public function setBackground(string $background): object
     {
         $this->background = $background;
+
         return $this;
     }
-    
+
     /**
-     * setSize
+     * setSize.
      *
-     * @param  int $width
-     * @param  int $height
-     * @return Object
+     * @param int $width
+     * @param int $height
+     *
+     * @return object
      */
-    public function setSize(int $width, int $height): Object
+    public function setSize(int $width, int $height): object
     {
         $this->width = $width;
         $this->height = $height;
+
         return $this;
     }
-    
+
     /**
-     * setText
+     * setText.
      *
-     * @param  string $text
-     * @param  string $color
-     * @return Object
+     * @param string $text
+     * @param string $color
+     *
+     * @return object
      */
-    public function setText(string $text, string $color = "#ffff"): Object
+    public function setText(string $text, string $color = '#ffff'): object
     {
         $this->text = $text;
         $this->textColor = $color;
+
         return $this;
     }
-    
+
     /**
-     * setFontSize
+     * setFontSize.
      *
-     * @param  int $size
-     * @return Object
+     * @param int $size
+     *
+     * @return object
      */
-    public function setFontSize(int $size) : Object
+    public function setFontSize(int $size): object
     {
         $this->fontSize = $size;
+
         return $this;
     }
-    
+
     /**
-     * output
+     * output.
      *
-     * @param  string $filename
+     * @param string $filename
+     *
      * @return void
      */
     public function output(string $filename = 'default.jpg'): void
@@ -93,7 +101,7 @@ class Dhivatar
         $image = ImageManagerStatic::canvas($this->width ?? $this::MAX_SIZE, $this->height ?? $this::MAX_SIZE, $this->background ?? $this->generateColor());
 
         $image->text(mb_substr($this->text, 0, 1), 245, 245, function ($font) {
-            $font->file(__DIR__ . '/fonts/MV_Faseyha.otf');
+            $font->file(__DIR__.'/fonts/MV_Faseyha.otf');
             $font->size($this->fontSize);
             $font->color($this->textColor);
             $font->align('center');
@@ -103,14 +111,14 @@ class Dhivatar
 
         $image->save($filename);
     }
-    
+
     /**
-     * generateColor
+     * generateColor.
      *
      * @return void
      */
     protected function generateColor()
     {
-        return '#' . str_pad(dechex(mt_rand(0, 0xFFFFFF)), 6, '0', STR_PAD_LEFT);
+        return '#'.str_pad(dechex(mt_rand(0, 0xFFFFFF)), 6, '0', STR_PAD_LEFT);
     }
 }
