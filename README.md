@@ -38,6 +38,8 @@ OUTPUT:
 
 You can chain setters to customize the generated image.
 
+If you don't set a background image. It will automatically generate a random background image.
+
 ## Available Methods
 
 - setBackground(string $background) : Set the background of the image
