@@ -48,7 +48,6 @@ If you don't set a background image. It will automatically generate a random bac
 - setFontSize(int $size) : Set the font size
 - output(string $filename) : Output the final image file.
 
-<<<<<<< HEAD
 I will add more configuration options later when I get time.
 
 
@@ -59,8 +58,6 @@ To return an instance of image intervention.
 - [ ] Add bas64 encoding
 - [ ] Add render option for the image
  
-=======
->>>>>>> d6751bfbd345c9e0177ea147a768d37ca89bd5cc
 ## Inspired by
 
 - [phoenixatom dhivehi-avatar](https://github.com/phoenixatom/dhivehi-avatar)
