@@ -3,6 +3,7 @@
 namespace Jinas\Dhivatar;
 
 use Intervention\Image\ImageManagerStatic;
+use Intervention\Image\Image;
 
 class Dhivatar
 {
@@ -90,13 +91,13 @@ class Dhivatar
     }
 
     /**
-     * output.
+     * build.
      *
      * @param string $filename
      *
      * @return void
      */
-    public function output(string $filename = 'default.jpg'): void
+    public function build(): Image
     {
         $image = ImageManagerStatic::canvas($this->width ?? $this::MAX_SIZE, $this->height ?? $this::MAX_SIZE, $this->background ?? $this->generateColor());
 
@@ -109,7 +110,7 @@ class Dhivatar
             $font->angle(0);
         });
 
-        $image->save($filename);
+        return $image;
     }
 
     /**

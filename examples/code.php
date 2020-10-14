@@ -4,12 +4,15 @@ use Jinas\Dhivatar\DhivatarFactory;
 
 require '../vendor/autoload.php';
 
-DhivatarFactory::create()
+
+(string) DhivatarFactory::create()
     ->setText('ޖިނާސް')
-    ->output('default.jpg');
+    ->build()
+  	->encode('data-url');
+
 
 DhivatarFactory::create()
     ->setText('ޖިނާސް', '#C93839')
     ->setFontSize(255)
     ->setBackground('#3083AD')
-    ->output('file.jpg');
+    ->build();

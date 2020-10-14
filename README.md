@@ -16,10 +16,13 @@ composer require jinas/dhivatar
 
 use Jinas\Dhivatar\DhivatarFactory;
 
-DhivatarFactory::create()
-            ->setText("ޖިނާސް")
-            ->output("default.jpg");        
+(string) DhivatarFactory::create()
+    ->setText('ޖިނާސް')
+    ->build()
+  	->encode('data-url');      
 ```
+This will output a base64 encoded of the image
+
 OUTPUT:
 
 ![default](examples/default.jpg)
@@ -32,7 +35,8 @@ DhivatarFactory::create()
             ->setText("ޖިނާސް", "#C93839")
             ->setFontSize(255)
             ->setBackground("#3083AD")
-            ->output("file.jpg");            
+            ->build()
+            ->save('file', 80, 'jpg');  // save the image in 80% quality and  jpg format defined by third parameter         
 ```
 OUTPUT:
 
@@ -48,17 +52,8 @@ If you don't set a background image. It will automatically generate a random bac
 - setSize(int $width, int $height) : Set the size of the image canvas
 - setText(string $text, string $color) : Set the text and text color
 - setFontSize(int $size) : Set the font size
-- output(string $filename) : Output the final image file.
+- build() : This method will return an instance of `Intervention\Image\Image` after building the image. Any methods available by Intervention\Image\Image you can call to render,ouput or save the image.
 
-I will add more configuration options later when I get time.
-
-
-## TODO
-
-To return an instance of image intervention.
-
-- [ ] Add bas64 encoding
-- [ ] Add render option for the image
  
 ## Inspired by
 
