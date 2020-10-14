@@ -2,8 +2,8 @@
 
 namespace Jinas\Dhivatar;
 
-use Intervention\Image\ImageManagerStatic;
 use Intervention\Image\Image;
+use Intervention\Image\ImageManagerStatic;
 
 class Dhivatar
 {
