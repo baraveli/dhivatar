@@ -60,3 +60,7 @@ Project by [Jinas](https://github.com/jinas123).
 
 
 Inspired by [phoenixatom dhivehi-avatar](https://github.com/phoenixatom/dhivehi-avatar)
+
+### Looking for an API that does this?
+
+Head over to [Dhivatar API](https://dhivatars.baivaru.net/). A project by [Baivaru](https://github.com/baivaru)
