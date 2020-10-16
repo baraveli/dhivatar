@@ -56,11 +56,7 @@ If you don't set a background image. It will automatically generate a random bac
 - setFontSize(int \$size) : Set the font size
 - build() : This method will return an instance of `Intervention\Image\Image` after building the image. Any methods available by [Image Intervention](http://image.intervention.io/) you can call to render,ouput or save the image.
 
-## Project by
-
-- [Jinas](https://github.com/jinas123)
+Project by [Jinas](https://github.com/jinas123).
 
 
-## Inspired by
-
-- [phoenixatom dhivehi-avatar](https://github.com/phoenixatom/dhivehi-avatar)
+Inspired by [phoenixatom dhivehi-avatar](https://github.com/phoenixatom/dhivehi-avatar)
